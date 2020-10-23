@@ -42,6 +42,7 @@ import de.cedric.test.commands.Tutorialexec;
 import de.cedric.test.commands.banCommand;
 import de.cedric.test.commands.newHome;
 import de.cedric.test.main.Main;
+import utilities.checkForBan;
 import utilities.utilitiesFunctions;
 
 
@@ -125,39 +126,9 @@ public class JoinListener implements Listener {
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent e) {
 		
-		
 		Player p = e.getPlayer();
 		
-		try {
-			banCommand.bancfg.load(banCommand.file);
-		} catch (IOException | InvalidConfigurationException e1) {
-			e1.printStackTrace();
-		}
-		
-		
-		if(!(banCommand.bancfg.contains(p.getName() + ".BANNED:"))) {
-			 File file = new File("plugins/Test", "bans.yml");
-			 FileConfiguration bancfg = YamlConfiguration.loadConfiguration(file);
-			 
-				try {
-					bancfg.load(file);
-				} catch (IOException | InvalidConfigurationException e1) {
-					e1.printStackTrace();
-				}
-				
-				boolean banned = false;
-			 
-				bancfg.set(p.getName() + ".BANNED:", banned);
-				try {
-					bancfg.save(file);
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-				
-		} else if(banCommand.bancfg.getBoolean(p.getName() + ".BANNED:", true)) {
-			p.kickPlayer("§cYou were banned from the server.");
-			return;
-		}
+		checkForBan.banCheck(p);
 		
 		e.setJoinMessage("§8[§a+§8] " + p.getName());
 
@@ -168,7 +139,6 @@ public class JoinListener implements Listener {
 
 		if(!p.hasPlayedBefore()) {
 			new TutorialSpawn(p).start();
-			p.sendTitle("§aWelcome!", "", 15,100,15);
 		    ItemStack food = new ItemStack(Material.BREAD);
 			ItemMeta testMeta = food.getItemMeta();
 			food.setAmount(16);
@@ -236,10 +206,15 @@ public class JoinListener implements Listener {
 	@EventHandler
 	public void onPlayerQuit(PlayerQuitEvent e) {
 		Player p = e.getPlayer();
-		e.setQuitMessage("§8[§c-§8] " + p.getName());
-		new newHome(p).stop();
-		new Spawn(p).stop();
-		new TpaAcceptCommand(p).stop();
+		if(!banCommand.bancfg.getBoolean(p.getName() + ".BANNED:", true)) {
+			e.setQuitMessage("§8[§c-§8] " + p.getName());
+			new newHome(p).stop();
+			new Spawn(p).stop();
+			new TpaAcceptCommand(p).stop();
+			return;
+		} else {
+			e.setQuitMessage("");
+		}
 	}
 	
 	@EventHandler
