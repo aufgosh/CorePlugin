@@ -130,11 +130,11 @@ public class JoinListener implements Listener {
 		
 		checkForBan.banCheck(p);
 		
-		e.setJoinMessage("§8[§a+§8] " + p.getName());
+		e.setJoinMessage("Â§8[Â§a+Â§8] " + p.getName());
 
 		utilitiesFunctions.clearPlayerChat(p);
 		utilitiesFunctions.sendHelpMessage(p);
-		p.sendTitle("§aWelcome!", "", 15,15,15);
+		p.sendTitle("Â§aWelcome!", "", 15,15,15);
 	
 
 		if(!p.hasPlayedBefore()) {
@@ -163,11 +163,11 @@ public class JoinListener implements Listener {
 		
 		switch(p.getInventory().getBoots().getItemMeta().getDisplayName()) {
 		
-		case "§cBoots of Torment":
+		case "Â§cBoots of Torment":
 			p.spawnParticle(Particle.VILLAGER_ANGRY, p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), 1);
 			p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1));
 			break;
-		case "§4Boots of Love":
+		case "Â§4Boots of Love":
 			p.spawnParticle(Particle.HEART, p.getLocation().getX(), p.getLocation().getY(), p.getLocation().getZ(), 1);
 			p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 40, 1));
 			break;
@@ -207,7 +207,7 @@ public class JoinListener implements Listener {
 	public void onPlayerQuit(PlayerQuitEvent e) {
 		Player p = e.getPlayer();
 		if(!banCommand.bancfg.getBoolean(p.getName() + ".BANNED:", true)) {
-			e.setQuitMessage("§8[§c-§8] " + p.getName());
+			e.setQuitMessage("Â§8[Â§c-Â§8] " + p.getName());
 			new newHome(p).stop();
 			new Spawn(p).stop();
 			new TpaAcceptCommand(p).stop();
@@ -242,7 +242,7 @@ public class JoinListener implements Listener {
 		String msg = e.getMessage().split(" ") [0];
 		HelpTopic topic = Bukkit.getServer().getHelpMap().getHelpTopic(msg);
 		if(topic == null) {
-			p.sendMessage(Main.prefix + "§cThis Command doesen't exist!");
+			p.sendMessage(Main.prefix + "Â§cThis Command doesen't exist!");
 			p.playSound(p.getLocation(), Sound.ENTITY_ELDER_GUARDIAN_CURSE, 3, 2);
 			e.setCancelled(true);
 		}
@@ -262,10 +262,10 @@ public class JoinListener implements Listener {
 		
 		if(p.getInventory().getBoots() != null && p.getInventory().getChestplate() != null && p.getInventory().getLeggings() != null && p.getInventory().getHelmet() !=null) {
 
-			if((p.getInventory().getBoots().getItemMeta().getDisplayName() == "§cBoots of Torment") && 
-					(p.getInventory().getChestplate().getItemMeta().getDisplayName() == "§cCuirass of Torment") && 
-					(p.getInventory().getLeggings().getItemMeta().getDisplayName() == "§cChaps of Torment") && 
-					(p.getInventory().getHelmet().getItemMeta().getDisplayName() == "§cTiara of Torment")) {
+			if((p.getInventory().getBoots().getItemMeta().getDisplayName() == "Â§cBoots of Torment") && 
+					(p.getInventory().getChestplate().getItemMeta().getDisplayName() == "Â§cCuirass of Torment") && 
+					(p.getInventory().getLeggings().getItemMeta().getDisplayName() == "Â§cChaps of Torment") && 
+					(p.getInventory().getHelmet().getItemMeta().getDisplayName() == "Â§cTiara of Torment")) {
 				e.setDamage(e.getDamage() * 20);
 				p.sendMessage("Damage done:" + (e.getDamage() * 20));
 			} else {
@@ -294,7 +294,7 @@ public class JoinListener implements Listener {
 		ItemStack item = e.getCurrentItem();
 		Player p = (Player) e.getWhoClicked();
 		
-		if(e.getView().getTitle().contains("Â§cBelohnungen")) {
+		if(e.getView().getTitle().contains("Â§cRewards")) {
 			e.setCancelled(true);
 			
 			if (open == null) {
@@ -305,7 +305,7 @@ public class JoinListener implements Listener {
 				return;
 			}
 			
-                if(item.getItemMeta().getDisplayName().equals("Â§dGewÃ¶hnliche Kiste")) {
+                if(item.getItemMeta().getDisplayName().equals("Â§dCommon Chest")) {
 				
 				
 			    ItemStack test = new ItemStack(Material.TRIPWIRE_HOOK);
@@ -347,7 +347,7 @@ public class JoinListener implements Listener {
 			         }
 			         }
                 
-                if(item.getItemMeta().getDisplayName().equals("Â§dSeltene Kiste")) {
+                if(item.getItemMeta().getDisplayName().equals("Â§dRare Chest")) {
     				
     			    ItemStack test = new ItemStack(Material.TRIPWIRE_HOOK);
     			    ArrayList<String> testLore = new ArrayList<String>();
@@ -388,7 +388,7 @@ public class JoinListener implements Listener {
     			}
     			}
                 
-                if(item.getItemMeta().getDisplayName().equals("Â§dEpische Kiste")) {
+                if(item.getItemMeta().getDisplayName().equals("Â§dEpic Chest")) {
     				
     				
     			    ItemStack test = new ItemStack(Material.TRIPWIRE_HOOK);
@@ -425,7 +425,7 @@ public class JoinListener implements Listener {
     				p.getInventory().addItem(xp);
     				p.playSound(p.getLocation(),Sound.ENTITY_PLAYER_LEVELUP, 3, 2);
     			}else {
-    				p.sendMessage(Main.prefix + "§cDu hast keinen passenden Schl§ssel!");
+    				p.sendMessage(Main.prefix + "Â§cDu hast keinen passenden SchlÃ¼ssel!");
     				p.playSound(p.getLocation(), Sound.ENTITY_ELDER_GUARDIAN_CURSE, 3, 2);
     			}
     			}

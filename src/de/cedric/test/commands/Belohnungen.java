@@ -20,7 +20,7 @@ public class Belohnungen implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		Player p = (Player) sender;
-		Inventory inv = Bukkit.createInventory(null, 27, "§cRewards");
+		Inventory inv = Bukkit.createInventory(null, 27, "Â§cRewards");
 		
 		
 		
@@ -32,31 +32,31 @@ public class Belohnungen implements CommandExecutor {
 		
 		ItemStack daily = new ItemStack(Material.ENDER_CHEST);
 		ItemMeta dailyMeta = daily.getItemMeta();
-		dailyMeta.setDisplayName("§dCommon Chest");
+		dailyMeta.setDisplayName("Â§dCommon Chest");
 		ArrayList<String> dailyLore = new ArrayList<String>();
-		dailyLore.add("§6You may open this common chest");
-		dailyLore.add("§6with a key,");
-		dailyLore.add("§6which u receive from §c/vote");
+		dailyLore.add("Â§6You may open this common chest");
+		dailyLore.add("Â§6with a key,");
+		dailyLore.add("Â§6which u receive from Â§c/vote");
 		dailyMeta.setLore(dailyLore);
 		daily.setItemMeta(dailyMeta);
 		
 		ItemStack rare = new ItemStack(Material.ENDER_CHEST);
 		ItemMeta rareMeta = rare.getItemMeta();
-		rareMeta.setDisplayName("§dRare Chest");
+		rareMeta.setDisplayName("Â§dRare Chest");
 		ArrayList<String> rareLore = new ArrayList<String>();
-	    rareLore.add("§6You may open this rare chest");
-		rareLore.add("§6with a key,");
-		rareLore.add("§6which u receive from §c/vote");
+	    rareLore.add("Â§6You may open this rare chest");
+		rareLore.add("Â§6with a key,");
+		rareLore.add("Â§6which u receive from Â§c/vote");
 		rareMeta.setLore(rareLore);
 		rare.setItemMeta(rareMeta);
 		
 		ItemStack epic = new ItemStack(Material.ENDER_CHEST);
 		ItemMeta epicMeta = epic.getItemMeta();
-		epicMeta.setDisplayName("§dEpic Chest");
+		epicMeta.setDisplayName("Â§dEpic Chest");
 		ArrayList<String> epicLore = new ArrayList<String>();
-	    epicLore.add("§6You may open this epic chest");
-		epicLore.add("§6with a key,");
-		epicLore.add("§6which u receive from §c/vote");
+	    epicLore.add("Â§6You may open this epic chest");
+		epicLore.add("Â§6with a key,");
+		epicLore.add("Â§6which u receive from Â§c/vote");
 		epicMeta.setLore(epicLore);
 		epic.setItemMeta(epicMeta);
 		
@@ -112,7 +112,7 @@ public class Belohnungen implements CommandExecutor {
 		p.playSound(p.getLocation(), Sound.BLOCK_ENDER_CHEST_OPEN, 3, 2);
 		p.openInventory(inv);
 		} else {
-			p.sendMessage(Main.prefix + "§cYou need to do the Tutorial first!");
+			p.sendMessage(Main.prefix + "Â§cYou need to do the Tutorial first!");
 			p.playSound(p.getLocation(), Sound.ENTITY_ELDER_GUARDIAN_CURSE, 3, 2);
 		}
 		return false;

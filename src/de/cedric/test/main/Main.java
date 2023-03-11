@@ -4,13 +4,15 @@ package de.cedric.test.main;
 
 import java.util.HashMap;
 
+import org.bukkit.plugin.java.JavaPlugin;
+
+
 import org.bukkit.Bukkit;
 
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import de.cedric.test.commands.Belohnungen;
 import de.cedric.test.commands.Enderchest;
@@ -45,9 +47,9 @@ import listener.JoinListener;
 public class Main extends JavaPlugin implements Listener {
 	
 	
-	public static String prefix = "§cServer§7 >> ";
-	public static String syntax = "§cwrong Syntax!";
-	public static String error = "§cServer§7 >> §cThis Command doesen't exist!";
+	public static String prefix = "Â§cServerÂ§7 >> ";
+	public static String syntax = "Â§cwrong Syntax!";
+	public static String error = "Â§cServerÂ§7 >> Â§cThis Command doesen't exist!";
 	private static Main plugin;
 	
 	
@@ -120,7 +122,7 @@ public class Main extends JavaPlugin implements Listener {
 			
 			 @Override
 			 public void run() {
-				 ((org.bukkit.craftbukkit.v1_16_R2.entity.CraftPlayer)p).getHandle().playerConnection.a(new net.minecraft.server.v1_16_R2.PacketPlayInClientCommand(net.minecraft.server.v1_16_R2.PacketPlayInClientCommand.EnumClientCommand.PERFORM_RESPAWN));
+				 p.spigot().respawn();
 			 }
 			 
 			

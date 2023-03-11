@@ -43,7 +43,7 @@ public class checkForBan {
 				
 		} else if(banCommand.bancfg.getBoolean(p.getName() + ".BANNED:", true)) {
 			
-			p.kickPlayer("§cYou were banned from the server.");
+			p.kickPlayer("Â§cYou were banned from the server.");
 			return;
 		}
 		

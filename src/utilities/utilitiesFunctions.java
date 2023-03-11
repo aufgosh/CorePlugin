@@ -17,13 +17,13 @@ public class utilitiesFunctions {
 	//Sends Player a Textwall of help
 	public static void sendHelpMessage(Player p) {
 		p.sendMessage(" ");
-		p.sendMessage("§8=============================");
+		p.sendMessage("Â§8=============================");
 		p.sendMessage("");
-		p.sendMessage(Main.prefix +"§a/spawn, /sethome, /home");
-		p.sendMessage(Main.prefix +"§a/tpa, /tpaccept (player)");
-		p.sendMessage(Main.prefix +"§a/ping, /trash");
+		p.sendMessage(Main.prefix +"Â§Â§/spawn, /sethome, /home");
+		p.sendMessage(Main.prefix +"Â§a/tpa, /tpaccept (player)");
+		p.sendMessage(Main.prefix +"Â§a/ping, /trash");
 		p.sendMessage("");
-		p.sendMessage("§8=============================");
+		p.sendMessage("Â§8=============================");
 		p.sendMessage(" ");
 		p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 3, 2);
 	}
